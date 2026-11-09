@@ -1,0 +1,13 @@
+# Ejecutables y compilacion
+ga_pfsp
+ga_pfsp.exe
+*.o
+build/
+cmake-build-*/
+
+# IDE
+.vscode/
+.idea/
+
+# Resultados generados al ejecutar
+resultados/
