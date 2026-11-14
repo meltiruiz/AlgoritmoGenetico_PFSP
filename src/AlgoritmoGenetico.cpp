@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <chrono>
 #include <numeric>
-#include <set>
 
 AlgoritmoGenetico::AlgoritmoGenetico(const Instancia& inst, const ParametrosGA& params)
     : inst_(inst), params_(params), rng_(params.semilla) {}
@@ -20,14 +19,10 @@ Individuo AlgoritmoGenetico::crearIndividuo(const Permutacion& p) {
     return ind;
 }
 
-// Poblacion inicial: 1 individuo construido con NEH + (P - 1) permutaciones aleatorias
-std::vector<Individuo> AlgoritmoGenetico::poblacionInicial(int& makespanNEH) {
+// Poblacion inicial: P permutaciones aleatorias
+std::vector<Individuo> AlgoritmoGenetico::poblacionInicial() {
     std::vector<Individuo> poblacion;
     poblacion.reserve(params_.tamPoblacion);
-
-    Individuo neh = crearIndividuo(heuristicaNEH(inst_));
-    makespanNEH = neh.makespan;
-    poblacion.push_back(neh);
 
     Permutacion base(inst_.n);
     std::iota(base.begin(), base.end(), 0);
@@ -107,7 +102,7 @@ ResultadoGA AlgoritmoGenetico::ejecutar() {
     };
 
     // 1) Poblacion inicial y mejor solucion global
-    std::vector<Individuo> poblacion = poblacionInicial(res.makespanNEH);
+    std::vector<Individuo> poblacion = poblacionInicial();
     Individuo mejor = *std::min_element(poblacion.begin(), poblacion.end(), porMakespan);
     res.mejorInicial = mejor.makespan;
     res.convergencia.push_back(mejor.makespan);  // generacion 0
@@ -119,8 +114,6 @@ ResultadoGA AlgoritmoGenetico::ejecutar() {
         std::vector<Individuo> nueva(poblacion.begin(),
                                      poblacion.begin() + std::min(params_.elite,
                                                                   params_.tamPoblacion));
-        std::set<Permutacion> presentes;  // para evitar duplicados cuando sea posible
-        for (const Individuo& e : nueva) presentes.insert(e.cromosoma);
 
         while (static_cast<int>(nueva.size()) < params_.tamPoblacion) {
             // Seleccion de padres por torneo
@@ -144,11 +137,6 @@ ResultadoGA AlgoritmoGenetico::ejecutar() {
                 if (aleatorio() < params_.probMutacion) {
                     mutacionInsercion(hijo);
                 }
-                // Si el hijo ya existe, se intenta diversificarlo con mas inserciones
-                for (int intento = 0; intento < 3 && presentes.count(hijo); ++intento) {
-                    mutacionInsercion(hijo);
-                }
-                presentes.insert(hijo);
                 nueva.push_back(crearIndividuo(hijo));
             }
         }

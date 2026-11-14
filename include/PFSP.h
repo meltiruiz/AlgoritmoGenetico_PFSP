@@ -18,9 +18,6 @@ int calcularMakespan(const Instancia& inst, const Permutacion& pi);
 // Tabla completa de tiempos de finalizacion C[i][j] (para el diagrama de Gantt).
 std::vector<std::vector<int>> tablaFinalizacion(const Instancia& inst, const Permutacion& pi);
 
-// Heuristica constructiva NEH (Nawaz, Enscore y Ham, 1983).
-Permutacion heuristicaNEH(const Instancia& inst);
-
 // Verifica que pi contenga cada trabajo exactamente una vez.
 bool esPermutacionValida(const Permutacion& pi, int n);
 

@@ -1,7 +1,6 @@
 #include "PFSP.h"
 
 #include <algorithm>
-#include <numeric>
 
 int calcularMakespan(const Instancia& inst, const Permutacion& pi) {
     // fila[j] guarda C[i-1][j] (cuando la maquina j queda libre).
@@ -28,36 +27,6 @@ std::vector<std::vector<int>> tablaFinalizacion(const Instancia& inst, const Per
         }
     }
     return C;
-}
-
-Permutacion heuristicaNEH(const Instancia& inst) {
-    // Paso 1: ordenar los trabajos de mayor a menor tiempo total de procesamiento
-    std::vector<int> orden(inst.n);
-    std::iota(orden.begin(), orden.end(), 0);
-    std::vector<int> total(inst.n, 0);
-    for (int i = 0; i < inst.n; ++i) {
-        total[i] = std::accumulate(inst.p[i].begin(), inst.p[i].end(), 0);
-    }
-    std::stable_sort(orden.begin(), orden.end(),
-                     [&](int a, int b) { return total[a] > total[b]; });
-
-    // Paso 2: insertar cada trabajo en la posicion que da el menor makespan parcial
-    Permutacion parcial;
-    for (int trabajo : orden) {
-        int mejorPos = 0;
-        int mejorValor = -1;
-        for (int pos = 0; pos <= static_cast<int>(parcial.size()); ++pos) {
-            Permutacion prueba = parcial;
-            prueba.insert(prueba.begin() + pos, trabajo);
-            int valor = calcularMakespan(inst, prueba);
-            if (mejorValor < 0 || valor < mejorValor) {
-                mejorValor = valor;
-                mejorPos = pos;
-            }
-        }
-        parcial.insert(parcial.begin() + mejorPos, trabajo);
-    }
-    return parcial;
 }
 
 bool esPermutacionValida(const Permutacion& pi, int n) {

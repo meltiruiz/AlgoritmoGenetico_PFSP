@@ -28,7 +28,6 @@ struct Individuo {
 struct ResultadoGA {
     Permutacion mejorSecuencia;
     int mejorMakespan = 0;
-    int makespanNEH = 0;               // makespan de la solucion NEH inicial
     int mejorInicial = 0;              // mejor makespan de la poblacion inicial
     int generacionHallazgo = 0;        // generacion en la que aparecio el mejor valor
     double tiempoMs = 0.0;             // tiempo solo de optimizacion
@@ -48,7 +47,7 @@ private:
     std::mt19937 rng_;
 
     Individuo crearIndividuo(const Permutacion& p);
-    std::vector<Individuo> poblacionInicial(int& makespanNEH);
+    std::vector<Individuo> poblacionInicial();
     const Individuo& torneo(const std::vector<Individuo>& poblacion);
     Permutacion cruceOX(const Permutacion& padre1, const Permutacion& padre2);
     void mutacionInsercion(Permutacion& p);

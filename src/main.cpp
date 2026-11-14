@@ -187,7 +187,7 @@ int main(int argc, char* argv[]) {
 
         std::cout << "Corrida " << std::setw(2) << r << " (semilla " << pr.semilla
                   << "): Cmax = " << std::setw(6) << res.mejorMakespan
-                  << " | NEH = " << res.makespanNEH << " | gen. hallazgo = "
+                  << " | gen. hallazgo = "
                   << std::setw(3) << res.generacionHallazgo << " | tiempo = " << std::fixed
                   << std::setprecision(3) << res.tiempoMs << " ms | "
                   << permutacionATexto(res.mejorSecuencia) << "\n";
@@ -218,7 +218,6 @@ int main(int argc, char* argv[]) {
 
     std::cout << "\n------------------- RESUMEN -------------------\n";
     std::cout << std::fixed << std::setprecision(2);
-    std::cout << "Makespan NEH (solucion inicial): " << mejor.makespanNEH << "\n";
     std::cout << "Mejor Cmax:      " << mejor.mejorMakespan << " (corrida " << (mejorIdx + 1)
               << ")\n";
     std::cout << "Peor Cmax:       " << peor << "\n";
@@ -235,13 +234,13 @@ int main(int argc, char* argv[]) {
     // 1) Detalle de cada corrida
     {
         std::ofstream f(carpeta / "corridas.csv");
-        f << "corrida,semilla,mejor_makespan,makespan_neh,mejor_inicial,generacion_hallazgo,"
+        f << "corrida,semilla,mejor_makespan,mejor_inicial,generacion_hallazgo,"
              "tiempo_ms,secuencia\n";
         f << std::fixed << std::setprecision(3);
         for (int r = 0; r < corridas; ++r) {
             const ResultadoGA& res = resultados[r];
             f << (r + 1) << "," << semillas[r] << "," << res.mejorMakespan << ","
-              << res.makespanNEH << "," << res.mejorInicial << "," << res.generacionHallazgo
+              << res.mejorInicial << "," << res.generacionHallazgo
               << "," << res.tiempoMs << "," << secuenciaCSV(res.mejorSecuencia) << "\n";
         }
     }
@@ -270,13 +269,13 @@ int main(int argc, char* argv[]) {
     // 4) Resumen de la instancia (una fila, util para la Tabla de resultados)
     {
         std::ofstream f(carpeta / "resumen.csv");
-        f << "instancia,n,m,poblacion,generaciones,torneo,pc,pm,elite,corridas,makespan_neh,"
+        f << "instancia,n,m,poblacion,generaciones,torneo,pc,pm,elite,corridas,"
              "mejor,peor,promedio,desv_est,tiempo_prom_ms,mejor_corrida,mejor_secuencia\n";
         f << inst.nombre << "," << inst.n << "," << inst.m << "," << params.tamPoblacion << ","
           << params.generaciones << "," << params.tamTorneo << "," << std::fixed
           << std::setprecision(2)
           << params.probCruce << "," << params.probMutacion << "," << params.elite << ","
-          << corridas << "," << mejor.makespanNEH << "," << mejor.mejorMakespan << "," << peor
+          << corridas << "," << mejor.mejorMakespan << "," << peor
           << "," << promedio << "," << desv << "," << std::setprecision(3) << tiempoProm << ","
           << (mejorIdx + 1) << "," << secuenciaCSV(mejor.mejorSecuencia) << "\n";
     }
