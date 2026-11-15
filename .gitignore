@@ -9,5 +9,3 @@ cmake-build-*/
 .vscode/
 .idea/
 
-# Resultados generados al ejecutar
-resultados/

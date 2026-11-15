@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GA_PFSP" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/GA_PFSP" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters='&quot;instancias\instancia3_car3.txt&quot; --corridas 10 --poblacion 150 --generaciones 800 --salida &quot;resultados\Final&quot;' />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="C:/Users/melis/Documents/PROYECTOS_PROGRAMACION_2026/AlgortimoGenetico_PFSP/include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/GA_PFSP" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++17" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/AlgoritmoGenetico.h" />
+		<Unit filename="include/Instancia.h" />
+		<Unit filename="include/PFSP.h" />
+		<Unit filename="instancias/instancia1_bas1.txt" />
+		<Unit filename="instancias/instancia2_car5.txt" />
+		<Unit filename="instancias/instancia3_car3.txt" />
+		<Unit filename="src/AlgoritmoGenetico.cpp" />
+		<Unit filename="src/Instancia.cpp" />
+		<Unit filename="src/PFSP.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

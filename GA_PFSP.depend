@@ -1,0 +1,89 @@
+# depslib dependency file v1.0
+1794699634 source:c:\users\melis\documents\proyectos_programacion_2026\algortimogenetico_pfsp\src\algoritmogenetico.cpp
+	"AlgoritmoGenetico.h"
+	<algorithm>
+	<chrono>
+	<numeric>
+
+1794699634 c:\users\melis\documents\proyectos_programacion_2026\algortimogenetico_pfsp\include\algoritmogenetico.h
+	<random>
+	<vector>
+	"Instancia.h"
+	"PFSP.h"
+
+1794699634 c:\users\melis\documents\proyectos_programacion_2026\algortimogenetico_pfsp\include\instancia.h
+	<string>
+	<vector>
+
+1794699634 c:\users\melis\documents\proyectos_programacion_2026\algortimogenetico_pfsp\include\pfsp.h
+	<string>
+	<vector>
+	"Instancia.h"
+
+1794699634 source:c:\users\melis\documents\proyectos_programacion_2026\algortimogenetico_pfsp\src\instancia.cpp
+	"Instancia.h"
+	<fstream>
+	<sstream>
+	<stdexcept>
+
+1794699634 source:c:\users\melis\documents\proyectos_programacion_2026\algortimogenetico_pfsp\src\main.cpp
+	<cmath>
+	<filesystem>
+	<fstream>
+	<iomanip>
+	<iostream>
+	<sstream>
+	<string>
+	<vector>
+	"AlgoritmoGenetico.h"
+	"Instancia.h"
+	"PFSP.h"
+
+1794699634 source:c:\users\melis\documents\proyectos_programacion_2026\algortimogenetico_pfsp\src\pfsp.cpp
+	"PFSP.h"
+	<algorithm>
+
+1794699634 source:c:\users\melis\documents\proyectos_programacion_2026\ga_pfsp\src\algoritmogenetico.cpp
+	"AlgoritmoGenetico.h"
+	<algorithm>
+	<chrono>
+	<numeric>
+
+1794699634 source:c:\users\melis\documents\proyectos_programacion_2026\ga_pfsp\src\instancia.cpp
+	"Instancia.h"
+	<fstream>
+	<sstream>
+	<stdexcept>
+
+1794699634 source:c:\users\melis\documents\proyectos_programacion_2026\ga_pfsp\src\main.cpp
+	<cmath>
+	<filesystem>
+	<fstream>
+	<iomanip>
+	<iostream>
+	<sstream>
+	<string>
+	<vector>
+	"AlgoritmoGenetico.h"
+	"Instancia.h"
+	"PFSP.h"
+
+1794699634 source:c:\users\melis\documents\proyectos_programacion_2026\ga_pfsp\src\pfsp.cpp
+	"PFSP.h"
+	<algorithm>
+
+1794699634 c:\users\melis\documents\proyectos_programacion_2026\ga_pfsp\include\algoritmogenetico.h
+	<random>
+	<vector>
+	"Instancia.h"
+	"PFSP.h"
+
+1794699634 c:\users\melis\documents\proyectos_programacion_2026\ga_pfsp\include\instancia.h
+	<string>
+	<vector>
+
+1794699634 c:\users\melis\documents\proyectos_programacion_2026\ga_pfsp\include\pfsp.h
+	<string>
+	<vector>
+	"Instancia.h"
+

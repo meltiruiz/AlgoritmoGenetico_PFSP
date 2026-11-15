@@ -1,0 +1,2 @@
+instancia,n,m,poblacion,generaciones,torneo,pc,pm,elite,corridas,mejor,peor,promedio,desv_est,tiempo_prom_ms,mejor_corrida,mejor_secuencia
+instancia2_car5.txt,10,6,150,500,3,0.90,0.20,2,10,7720,7821,7743.20,30.67,140.026,3,J4 J5 J2 J1 J3 J8 J6 J10 J9 J7
