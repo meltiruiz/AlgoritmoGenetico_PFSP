@@ -13,15 +13,15 @@ Para ejecutar el proyecto se necesita:
 1. Abrir Code::Blocks y seleccionar **File → Open**.
 2. Abrir el archivo `GA_PFSP.cbp`.
 3. Verificar en **Project → Build options → Search directories → Compiler** que esté incluida la carpeta `include`.
-![alt text](docs\SearchDirectories.png)
+![Configuración de directorios](docs/SearchDirectories.png)
 4. Verificar que esté habilitado el estándar C++17.
-![alt text](docs\C++17.png)
+![Configuración de C++17](docs/C++17.png)
 5. Compilar mediante **Build → Build (Ctrl + F9)**.
 
 Para ejecutar el algoritmo desde Code::Blocks:
 
 1. Ingresar a **Project → Set programs' arguments**.
-![alt text](docs\SetPrograms.png)
+![Argumentos del programa](docs/SetPrograms.png)
 2. Seleccionar **Debug**.
 3. Introducir los siguientes argumentos:
 
@@ -40,7 +40,9 @@ Para ejecutar el algoritmo desde Code::Blocks:
 "instancias\instancia3_car3.txt" --corridas 10 --poblacion 150 --generaciones 800 --salida "resultados\Final_P150_G800"
 ```
 
-![alt text](docs\Debug.png)
+
+
+![Configuración Debug](docs/Debug.png)
 
 4. Presionar **OK** y ejecutar con **F9**.
 
