@@ -21,7 +21,9 @@ Para ejecutar el proyecto se necesita:
 Para ejecutar el algoritmo desde Code::Blocks:
 
 1. Ingresar a **Project → Set programs' arguments**.
+
 ![Argumentos del programa](docs/SetPrograms.png)
+
 2. Seleccionar **Debug**.
 3. Introducir los siguientes argumentos:
 
